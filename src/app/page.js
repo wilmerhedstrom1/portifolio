@@ -48,20 +48,21 @@ export default function Home() {
               SaaS apps and websites. My primary focus in backend development but am keen to doing frontend development as well.
             </p>
             {/* Grid med statistik - 1 kolumn på mobil, 3 på större skärmar */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
+            {/* Använder <ul> och <li> för bra tillgänglighet. */}
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <li className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">50+</div>
                 <div className="text-muted-foreground">Projects Launched</div>
-              </div>
-              <div className="text-center">
+              </li>
+              <li className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">2+</div>
                 <div className="text-muted-foreground">Years Experience</div>
-              </div>
-              <div className="text-center">
+              </li>
+              <li className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">100%</div>
                 <div className="text-muted-foreground">Drive</div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -104,22 +105,23 @@ export default function Home() {
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
-                  {/* flex gör att badges (span i detta fall) lägger sig på rad, flex-wrap gör att de bryts till ny rad om det inte får plats */}
+                  {/* flex gör att badges (li i detta fall) lägger sig på rad, flex-wrap gör att de bryts till ny rad om det inte får plats */}
                   {/* gap-2 ger mellanrum mellan varje badge, mb-4 ger margin under badges */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  {/* Använder <ul> för att lista teknik för bra tillgänglighet. */}
+                  <ul className="flex flex-wrap gap-2 mb-4">
                     {/* project.tech är en array som finns i varje projekt-objekt */}
-                    {/* map() går igenom varje tech i tech-arrayen och skapar en badge (span) för varje teknik */}
+                    {/* map() går igenom varje tech i tech-arrayen och skapar en badge (li) för varje teknik */}
                     {project.tech.map((tech) => (
-                      <span
+                      <li
                         key={tech}
                         // Design för varje badge, med padding och ljusare bakgrund och rundade hörn
                         className="px-2 py-1 bg-primary/10 text-primary text-xs rounded"
                       >
                         {/* Namnet på teknink */}
                         {tech}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                   {/* asChild gör att knappen inte blir en <button>, utan stylar den inre <Link>-taggen som om den såg ut som en knapp */}
                   <Button asChild variant="outline" className="w-full">
                     <Link href={project.link} target="_blank">View Project</Link>

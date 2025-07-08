@@ -41,10 +41,11 @@ export default function Hero() {
 
           {/* Skills badges */}
           {/* flex-wrap gör att badges bryts till ny rad om det inte får plats, gap-3 ger mellanrum mellan badges */}
-          <div className="mt-16 flex flex-wrap justify-center gap-3">
-            {/* Array med skills, map() skapar en badge (span) för varje skill */}
+          {/* Använder <ul> och <li> för att rendera en lista av färdigheter, vilket är semantiskt korrekt. */}
+          <ul className="mt-16 flex flex-wrap justify-center gap-3">
+            {/* Array med skills, map() skapar en badge (li) för varje skill */}
             {skills.map((skill) => (
-              <span
+              <li
                 key={skill}
                 className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 // border ger en kant runt badge, border-border ger kantfärg, rounded-full för helt rundade hörn
@@ -52,9 +53,9 @@ export default function Hero() {
               >
                 {/* Namnet på skillen */}
                 {skill}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>

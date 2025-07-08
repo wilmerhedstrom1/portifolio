@@ -65,16 +65,16 @@ export default function Projects() {
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <ul className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
-                      <span
+                      <li
                         key={tech}
                         className="px-2 py-1 bg-primary/10 text-primary text-xs rounded"
                       >
                         {tech}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                   <Button asChild variant="outline" className="w-full">
                     <Link href={project.link} target="_blank">View Project</Link>
                   </Button>

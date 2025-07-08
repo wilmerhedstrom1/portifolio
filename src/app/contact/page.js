@@ -66,29 +66,29 @@ export default function Contact() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* flex-col gör att badges och formuläret staplas på höjden, items-center centrerar dem horisontellt */}
           <div className="flex flex-col items-center w-full">
-            {/* Contact Badges, länkar till email, github och linkedin */}
-            <div className="flex flex-wrap gap-3 mb-10 justify-center">
+            {/* Contact Badges, länkar till email, github och linkedin. Använder <ul> för semantisk korrekthet. */}
+            <ul className="flex flex-wrap gap-3 mb-10 justify-center">
               {/* Varje badge är en länk med ikon och text, flex och gap-2 gör att ikon och text hamnar bredvid varandra med mellanrum */}
               {/* Designen för varje badge är samma som på landingssidan med skills men tillägget är logga + text med: item-center, flex och gap som gör att de ligger på rad med mellanrum*/}
-              <a href="mailto:wilmer.hedstrom@gmail.com" className="cursor-pointer" >
-                <span className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+              <li>
+                <a href="mailto:wilmer.hedstrom@gmail.com" className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   Email
-                </span>
-              </a>
-              <a href="https://github.com/wilmerhedstrom1" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                <span className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/wilmerhedstrom1" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <Code2 className="w-4 h-4" />
                   Github
-                </span>
-              </a>
-              <a href="https://www.linkedin.com/in/wilmer-hedstr%C3%B6m-07429b244/" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                <span className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/wilmer-hedstr%C3%B6m-07429b244/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <Building2 className="w-4 h-4" />
                   LinkedIn
-                </span>
-              </a>
-            </div>
+                </a>
+              </li>
+            </ul>
             
             {/* Contact Form */}
             <div className="w-full max-w-xl">
