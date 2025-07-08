@@ -1,82 +1,38 @@
 import Navigation from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Projects() {
-  const projects = [
+  // Array med projektdata som ska visas på sidan, samma på landingssidan
+  const featuredProjects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce solution built with Next.js and Stripe. Features include user authentication, product management, shopping cart, and secure payment processing.",
-      tech: ["Next.js", "Stripe", "Tailwind CSS", "MongoDB"],
-      category: "Full Stack",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Tenara Website",
+      description: "A website for a SaaS platform",
+      tech: ["Next.js", "Tailwind CSS", "React", "Shadcn"],
+      image: "/tenara_website.png",
+      link: "https://tenara.se",
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, team collaboration, and project tracking features.",
-      tech: ["React", "Firebase", "Material-UI", "Redux"],
-      category: "Frontend",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description: "Personal portfolio website showcasing projects, skills, and professional experience with modern design and animations.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      category: "Frontend",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 4,
-      title: "Weather Dashboard",
-      description: "Real-time weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      tech: ["React", "OpenWeather API", "Chart.js", "CSS3"],
-      category: "Frontend",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 5,
-      title: "Blog CMS",
-      description: "Content management system for blogs with markdown support, SEO optimization, and admin dashboard.",
-      tech: ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
-      category: "Full Stack",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 6,
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management with data visualization and scheduling features.",
-      tech: ["React", "Node.js", "Express", "D3.js"],
-      category: "Full Stack",
-      image: "/api/placeholder/400/250",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+      title: "Tenara Admin Platform",
+      description: "Fullstack SaaS application for Tenara admin platform",
+      tech: ["Node.js", "SQL", "Vite", "React", "Shadcn", "Tailwind CSS"],
+      image: "/tenara_admin.png",
+      link: "https://app.tenara.se",
+    }
   ];
 
-  const categories = ["All", "Frontend", "Full Stack", "Backend", "Mobile"];
-
   return (
+    // main = huvudinnehållet på sidan, min-h-screen gör att den tar upp hela skärmhöjden
     <main className="min-h-screen">
       <Navigation />
-      
-      {/* Header */}
       <section className="pt-32 pb-20">
+        {/* container centrerar innehållet och ger maxbredd, px-4/6/8 ger olika padding beroende på skärmstorlek */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* mx-auto gör att diven blir centrerad */}
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">My Projects</h1>
             <p className="text-lg text-muted-foreground mb-8">
@@ -85,72 +41,43 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
-      {/* Projects Grid */}
+      {/* Projekt sektionen har exakt samma struktur som landingssidan featured projects */}
       <section className="pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search and Filter */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <div className="flex-1">
-              <Input 
-                placeholder="Search projects..." 
-                className="max-w-md"
-              />
-            </div>
-            <div className="flex gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={category === "All" ? "default" : "outline"}
-                  size="sm"
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <Card key={project.id} className="group hover:shadow-lg transition-all duration-300">
-                <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm">Project Image</span>
-                  </div>
+            {featuredProjects.map((project) => (
+              <Card key={project.id}>
+                <div className="aspect-video bg-muted rounded-t-lg overflow-hidden relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="w-full h-full"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={project.id === 1}
+                  />
                 </div>
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">
-                      {project.category}
-                    </span>
-                  </div>
+                <CardHeader className="px-0">
                   <CardTitle className="group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="line-clamp-3">
-                    {project.description}
-                  </CardDescription>
+                  <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="px-0">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
+                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-2">
-                    <Button asChild variant="outline" size="sm" className="flex-1">
-                      <Link href={project.liveUrl}>Live Demo</Link>
-                    </Button>
-                    <Button asChild variant="outline" size="sm" className="flex-1">
-                      <Link href={project.githubUrl}>GitHub</Link>
-                    </Button>
-                  </div>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href={project.link} target="_blank">View Project</Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
