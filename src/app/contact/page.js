@@ -104,7 +104,7 @@ export default function Contact() {
                   {/* Formulär med space-y-6 för mellanrum mellan fälten */}
                   {/* onSubmit={handleSubmit} gör att handleSubmit funktionen körs när formuläret skickas in */}
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* grid gör att namn och email ligger bredvid varandra på större skärmar, gap-4 ger mellanrum */}
+                    {/* grid och grid-cols-1 gör att namn och email ligger bredvid varandra på större skärmar, gap-4 ger mellanrum */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name</Label>

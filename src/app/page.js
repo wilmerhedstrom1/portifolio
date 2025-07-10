@@ -51,7 +51,7 @@ export default function Home() {
             {/* Använder <ul> och <li> för bra tillgänglighet. */}
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <li className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                <div className="text-3xl font-bold text-primary mb-2">2+</div>
                 <div className="text-muted-foreground">Projects Launched</div>
               </li>
               <li className="text-center">
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Ready to Work Together? */}
       <section className="py-20 bg-primary/5">
         {/* container centrerar innehållet, mx-auto = margin auto på sidorna */}
         {/* sm:px-6 lg:px-8 samt för sm:text-4xl etc ger olika padding/storlek på font beroende på skärmstorlek */}

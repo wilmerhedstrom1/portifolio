@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
-  // Hämta den aktuella sökvägen så vi kan markera vilken sida som är aktiv
+  // Hämta den aktuella sökvägen så man kan markera vilken sida som är aktiv
   const pathname = usePathname();
 
   // Array med alla menyalternativ. 
@@ -17,7 +17,7 @@ export default function Navigation() {
   ];
 
   return (
-    // nav = navigation bar, fixed gör att den alltid ligger högst upp, z-50 gör att den ligger över annat innehåll
+    // fixed gör att nav alltid ligger längst upp, z-50 gör att den ligger över annat innehåll med tanke på indexeringen 50
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background">
       {/* container centrerar innehållet och ger maxbredd, px-4/6/8 ger olika padding beroende på skärmstorlek */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ export default function Navigation() {
             <span className="font-semibold text-lg">Wilmer Hedström</span>
           </Link>
 
-          {/* Navigation Links - dold på mobil (hidden md:flex), visas på större skärmar */}
+          {/* Navigation Links, dold på mobil (hidden md:flex), visas på större skärmar */}
           {/* flex gör att länkarna lägger sig på rad, space-x-8 ger mellanrum mellan varje länk */}
           <div className="hidden md:flex items-center space-x-8">
             {/* map() går igenom varje objekt i navItems-arrayen och skapar en länk för varje */}
